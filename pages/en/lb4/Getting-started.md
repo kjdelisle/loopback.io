@@ -24,10 +24,18 @@ The starting point is [ECMAScript 6](http://www.ecma-international.org/ecma-262/
 - Running the app (node ., npm start)
 " %}
 
+## Installation
+
+Make sure you have Node.js 8.0.0 or higher installed.
+
 ## A simple example
 
-Here is the most basic LoopBack 4 application:
+This example creates an `Application` and a `RestServer` that responds to all HTTP requests with the text "Hello World".
 
+### Building a LoopBack 4 application
+First create a new folder.  Then, create three files within this folder: `index.ts`, `tsconfig.json` and `package.json`.  
+
+{% include code-caption.html content="index.ts" %}
 ```ts
 import {Application} from '@loopback/core';
 import {RestComponent, RestServer} from '@loopback/rest';
@@ -46,12 +54,60 @@ const app = new Application({
   await app.start();
   console.log(`REST server listening on port ${server.getSync('rest.port')}`);
 })();
+
 ```
 
-The example above creates an `Application` and a `RestServer` that responds to all HTTP requests with the text "Hello World".
+Next, create a file called tsconfig.json to indicate that this is a TypeScript project and specify the TypeScript compiler options required.  For more details, see [TypeScript documentation](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
 
-To see what the complete application looks like, see [loopback-next-hello-world](https://github.com/strongloop/loopback-next-hello-world/).
+{% include code-caption.html content="tsconfig.json" %}
+```
+{
+  "compilerOptions": {
+    /* Basic Options */
+    "target": "es2017",                          
+    "module": "commonjs",                     
 
-The following guides introduce the fundamental concepts of LoopBack 4 required to build scalable, maintainable, and consistent APIs.
+    /* Experimental Options */
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  }
+}
+```
 
-If you want to try it out locally follow the instructions in [Installation](Installation.html).  
+Finally, create a file called package.json. 
+
+{% include code-caption.html content="package.json" %}
+```
+{
+  "name": "getting-started",
+  "description": "Getting Started for LoopBack 4",
+  "authors": "you",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "tsc && node index.js"
+  }
+}
+```
+
+### Running the application
+
+To install the required packages, enter:
+```
+npm install --save @loopback/core @loopback/rest @types/node typescript
+```
+
+To run the application, enter:
+```
+npm start
+```
+
+On another terminal, enter:
+```
+curl http://localhost:3000/helloworld
+```
+You should see the `Hello World` message.
+
+
+## References
+
+For more examples and tutorials, see [Examples-and-tutorials.html](http://loopback.io/doc/en/lb4/Examples-and-tutorials.html).
