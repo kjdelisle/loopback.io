@@ -81,7 +81,6 @@ Finally, create a file called package.json.
 {
   "name": "getting-started",
   "description": "Getting Started for LoopBack 4",
-  "authors": "you",
   "version": "1.0.0",
   "scripts": {
     "start": "tsc && node index.js"
