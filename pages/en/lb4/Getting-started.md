@@ -84,6 +84,14 @@ Finally, create a file called package.json.
   "version": "1.0.0",
   "scripts": {
     "start": "tsc && node index.js"
+  },
+  "dependencies": {
+    "@loopback/core": "^4.0.0-alpha.16",
+    "@loopback/rest": "^4.0.0-alpha.3"
+  },
+  "devDependencies": {
+    "@types/node": "^8.0.34",
+    "typescript": "^2.5.3"
   }
 }
 ```
@@ -92,7 +100,7 @@ Finally, create a file called package.json.
 
 To install the required packages, enter:
 ```
-npm install --save @loopback/core @loopback/rest @types/node typescript
+npm install
 ```
 
 To run the application, enter:
