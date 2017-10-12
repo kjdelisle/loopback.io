@@ -120,4 +120,4 @@ sidebars:
 # needed for sitemap.xml file only
 url: http://kjdelisle.github.io/loopback.io
 
-theme: jekyll-theme-cayman
+theme: jekyll-theme-minimal
